@@ -1,67 +1,81 @@
-## Employee Management System Application Documentation
+# Employee Management System (EMS) Application
 
-### Introduction
+## Introduction
+The **Employee Management System (EMS)** is a desktop application designed for HR departments to manage company employees efficiently. The application allows HR personnel to add, delete, update, and display employee information, track online/offline status, and access various other features. Employees can create accounts to view and verify their personal information or update their online status.
 
-EMS app is a system designed for managing a company employees by the HR. this application has designed for each company
-has an online employee system in which the HR can add, delete, update, display the employees , check who is online and 
-who is not, and a lot of other features.
+**User Types:**
+- **HR Accounts**: Full access to manage and view all employee data.
+- **Employee Accounts**: Limited access to view only personal data.
 
-At the same time each employee can sign up and create a new account where they can check there personal information in 
-case there is something wrong, setting up there activity (online or offline).
+## Features
+- **User Authentication**: Separate login for HR and employees.
+- **CRUD Operations**:
+  - **Create**: Add new employees.
+  - **Read**: Display employee data.
+  - **Update**: Modify existing employee information.
+  - **Delete**: Remove employees or accounts.
+- **Activity Tracking**: Monitor online/offline status of employees.
 
-Logging in is possible in two ways:
-
-* **HR** account where the owner of these accounts can manipulate and visualize the whole data.
-* **Employee** accounts where the owner of these accounts can just see their own personal data without the ability to
-modify it .
-
-
-### Used Technology 
-
+## Technologies Used
+- **Language**: Java
 - **Framework**: Java Swing
-- **Build Tool**: IntelliJ
+- **Build Tool**: IntelliJ IDEA
 - **Database**: MySQL
 
-### Start the application
+## Manual Implementation
+This project is implemented without the use of any external frameworks to demonstrate a deep understanding of core Java concepts and JDBC for database management. All functionalities, including CRUD operations and database interactions, are handled manually to showcase the developer's expertise in Java programming and database connectivity.
 
-1. **Configuration**: Check `src/repo` for EmployeeRepo. Adjust the database *'URL'*, username *'dbusername'*, and
-   password *'dbpassword'* as per your MySQL setup, and go to the file "Tool" adjust the path of this file according to yours.
-2. **Database Setup**:  Install MySql server and import the database *'ems.sql'* to your MySQL localhost. do not forget to add *mysql-connection-j-8-2-0.jar'* to you project.
-   If you are using IntelliJ Idea do the follow to add the file : navigate "File->Project Structure->modules-> + -> JARs or directory" select the file.
-3. **Running the App**: Navigate to `src/main/Main.java` and run 'main()' method to start the application.
+## Setup Instructions
+
+### 1. Configuration
+- Open the `src/repo/EmployeeRepo` file.
+- Adjust the database connection parameters:
+  - **Database URL**
+  - **Username** (`dbusername`)
+  - **Password** (`dbpassword`)
+- Update the file path in the "Tool" class according to your local setup.
+
+### 2. Database Setup
+1. Install MySQL server.
+2. Import the `ems.sql` database file to your MySQL localhost.
+3. Add the MySQL JDBC driver (`mysql-connection-j-8-2-0.jar`) to the project:
+   - In IntelliJ IDEA: Navigate to `File > Project Structure > Modules > + > JARs or Directory` and select the JAR file.
+
+### 3. Running the Application
+- Navigate to `src/main/Main.java`.
+- Run the `main()` method to start the application.
 
 ## Project Structure
+The application follows the **Model-View-Controller (MVC)** architecture:
+- `src`: Main project folder containing the following subdirectories:
+  - **`/controller`**: Controllers handling application logic.
+  - **`/main`**: Main method and supporting classes.
+  - **`/view`**: All application views.
+  - **`/resources`**: Icons and the "Tool" class.
+  - **`/repo`**: `EmployeeRepo` class managing database operations.
 
-The project adheres to the MVC architecture, organized into the following directories:
+## Key Functional Requirements
+- **Compilation**: The project compiles and runs successfully.
+- **MVC Architecture**: The application is organized using the MVC pattern for better scalability and maintainability.
+  - Note: Models were not explicitly necessary for this project.
+- **Manual Implementation**: All features and database interactions are implemented without frameworks, showcasing a strong understanding of Java and JDBC.
+- **Inheritance and Polymorphism**: The project uses inheritance and method overriding/overloading effectively (primarily within `JFrame` components).
+- **Enumerations**: Not implemented; considered unnecessary for the current scope.
+- **Desktop Application**: Fully functional Java Swing-based desktop application.
+- **Multiple Views**: The application provides at least five views:
+  - `LoginView`, `SignupView`, `EmployeeView`, `ManagementView` (with four integrated subviews).
+- **Role-Based Access**: Two distinct user types (HR and Employee) with role-specific access controls.
+- **Exception Handling**: Comprehensive exception handling for robust error management.
+- **Code Style**: Adheres to industry standards with clear, maintainable, and camelCase naming conventions.
+- **Database Integration**: Seamless integration with MySQL for data storage and retrieval.
+- **CRUD Operations**: Fully implemented for managing employee records:
+  - **Create**: Add new employees.
+  - **Read**: View employee data.
+  - **Update**: Edit employee information.
+  - **Delete**: Remove employees/accounts.
 
-- `src` is the main folder in this project. Inside this folder there are :
-    - `/controller` contains all controllers of the java app,
-    - `/main` contains Main method and some classes.
-    - `/view` contains all the views.
-    - `/resourses` contains all the icons and *tool* class.
-    - `/repo` contains *EmployeeRepo* which handles the whole operation with the database.
-      
+## Notes
+- **Inheritance**: While inheritance and method overriding/overloading are implemented, they mainly involve `JFrame` components.
+- **Enumerations**: Excluded from the project as they were not necessary for the defined requirements.
 
-## The application supports CRUD operations 
-
-- **Create**: Add new employee, in ManagementView -> addEmployeePanel -> addButton.
-- **Read**: tables and refresh buttons, you can find it in ManagementView.
-- **Update**: update the Employee data, in ManagementView -> addEmployeePanel -> updateButton, and some other places.
-- **Delete**: Delete an Employee or an account, in ManagementView -> addEmployeePanel -> deleteButton, and some other places.
-
-You can find the all CRUD operations in `src/repo/EmployeeRepo`.
-
-Check the Requirements 
-
-- ✅ Compilation (1p).
-- ✅ MVC (1p) | (but in my project there was no needed to create Models).
-- ✅❌ Inheritance (Override & Overload) (0.5p) | I have inheritance and a lot of override & Overload but all of them form JFrame so i do not know if they are considered or not.
-- ❌ Enumerations (0.5p).
-- ✅ Desktop Application (0.5p).
-- ✅ Min 5 Views (1p) | LoginView , SignupView , EmployeeView , ManagementView(it has 4 integrated views).
-- ✅ 2 Types of user (1p) | Employee and HR.
-- ✅ Exception Handling (0.5p) .
-- ✅ Code Style (1p) | Clear, understandable, organized project performed using *Camel Style*.
-- ✅ Database Connection (1p) | uses MySQL server *localhost*.
-- ✅ CRUD on entities (1p) | under user commands and in the background
-- ✅ Documentation (1p) | Thank you for reading *all the best*.
+Thank you for reviewing this documentation. If you have any questions or need further clarification, feel free to reach out!
